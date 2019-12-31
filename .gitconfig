@@ -1,0 +1,12 @@
+alias git="hub"
+alias g="git"
+alias p="git push"
+alias pull="git pull-request"
+alias sourcetree="open . -a 'SourceTree'"
+alias st="sourcetree"
+m() {
+  git commit -m "$@"
+}
+trigger() {
+  git commit --amend --no-edit && git push -f
+}
