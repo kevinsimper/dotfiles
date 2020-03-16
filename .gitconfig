@@ -9,6 +9,7 @@ alias b="git browse"
 alias s="git status"
 m() {
   git commit -m "$@"
+  git push &>/dev/null &
 }
 trigger() {
   git commit --amend --no-edit && git push -f
