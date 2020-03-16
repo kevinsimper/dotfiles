@@ -2,8 +2,6 @@ alias git="hub"
 alias g="git"
 alias p="git push"
 alias pull="git pull-request"
-alias sourcetree="open . -a 'SourceTree'"
-alias st="sourcetree"
 alias nb="git checkout -b"
 alias c="git ci-status -v"
 alias master="git checkout master && git pull"
@@ -28,4 +26,9 @@ pr() {
 }
 gremovebranch() {
   git branch --merged | grep -v "\*" | grep -v master | grep -v dev | xargs -n 1 git branch -d
+}
+
+alias st="sourcetree"
+sourcetree() {
+  open $(git rev-parse --show-toplevel) -a 'SourceTree'
 }
