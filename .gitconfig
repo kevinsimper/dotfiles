@@ -4,9 +4,28 @@ alias p="git push"
 alias pull="git pull-request"
 alias sourcetree="open . -a 'SourceTree'"
 alias st="sourcetree"
+alias nb="git checkout -b"
+alias c="git ci-status -v"
+alias master="git checkout master && git pull"
+alias b="git browse"
+alias s="git status"
 m() {
   git commit -m "$@"
 }
 trigger() {
   git commit --amend --no-edit && git push -f
+}
+pr() {
+  branch=$(git branch --show-current)
+  echo $branch
+  if [[ "$branch" == "master" ]]; then
+    echo "You are on master!"
+  else
+    git commit -m "$@"
+    git push
+    hub pull-request -m "$@" --browse --copy
+  fi
+}
+gremovebranch() {
+  git branch --merged | grep -v "\*" | grep -v master | grep -v dev | xargs -n 1 git branch -d
 }
