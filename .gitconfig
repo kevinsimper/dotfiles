@@ -21,8 +21,7 @@ pr() {
     echo "You are on master!"
   else
     git commit -m "$@"
-    git push
-    hub pull-request -m "$@" --browse --copy
+    hub pull-request -m "$@" --browse --copy --push
   fi
 }
 gremovebranch() {
