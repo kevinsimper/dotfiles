@@ -11,6 +11,9 @@ m() {
   git commit -m "$@"
   git push &>/dev/null &
 }
+setupstream() {
+  git branch -u "origin/$(git branch --show-current)"
+}
 trigger() {
   git commit --amend --no-edit && git push -f
 }
