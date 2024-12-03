@@ -9,10 +9,10 @@ alias b="git browse"
 alias s="git status"
 m() {
   git commit -m "$@"
-  git push &>/dev/null &
+  git push --set-upstream origin $(git branch --show-current) &>/dev/null &
 }
 setupstream() {
-  git branch -u "origin/$(git branch --show-current)"
+  git push --set-upstream origin $(git branch --show-current)
 }
 trigger() {
   git commit --amend --no-edit && git push -f
@@ -24,7 +24,8 @@ pr() {
     echo "You are on master!"
   else
     git commit -m "$@"
-    hub pull-request -m "$@" --browse --copy --push
+    git push --set-upstream origin $branch
+    gh pr create --title "$@"
   fi
 }
 gremovebranch() {
