@@ -54,7 +54,6 @@ export GOPATH=~/gocode/
 export PATH="/Users/kevinsimper/gocode/bin:$PATH"
 
 eval "$(jump shell bash)"
-eval "$(hub alias -s)"
 
 export NVM_DIR="$HOME/.nvm"
   . "/usr/local/opt/nvm/nvm.sh"
