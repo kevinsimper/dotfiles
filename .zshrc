@@ -14,7 +14,7 @@ export LANG=en_US.UTF-8
 export HISTCONTROL=ignoreboth:erasedups
 
 alias rb=". ~/.zshrc"
-alias ls="exa"
+alias ls="eza"
 alias ll="ls -alF -s type"
 alias lm="ls -l -s modified"
 cl() {
@@ -26,6 +26,7 @@ alias keynotehighlight="pbpaste | highlight --syntax=js -O rtf | pbcopy"
 alias resetdns="sudo killall -HUP mDNSResponder"
 alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias bigtext="toilet -W -f mono12"
+alias c="claude"
 alias k="kubectl"
 alias d="docker"
 alias dc="docker-compose"
